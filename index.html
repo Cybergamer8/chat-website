@@ -3,26 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Website</title>
+    <title>ChatHub - Discord-like Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Chat Room</h1>
-            <p>Welcome to our simple chat app!</p>
-        </div>
-        
-        <div class="chat-box" id="chatBox">
-            <!-- Messages will appear here -->
-        </div>
-        
-        <div class="input-area">
-            <input type="text" id="messageInput" placeholder="Type your message..." />
-            <button id="sendButton">Send</button>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>💬 ChatHub</h1>
+                <p>Connect with your friends</p>
+            </div>
+            <div class="login-form">
+                <input type="text" id="username" placeholder="Username" autocomplete="username">
+                <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+                <button id="loginBtn" class="primary-btn">Login</button>
+                <button id="registerBtn" class="secondary-btn">Register</button>
+                <p class="info-text">Demo accounts: user1/pass1, user2/pass2, user3/pass3</p>
+            </div>
         </div>
     </div>
-    
+
+    <!-- Main Chat Application -->
+    <div id="chatApp" class="chat-app" style="display: none;">
+        <!-- Server Sidebar -->
+        <div class="server-sidebar">
+            <div class="server-header">
+                <h3>Servers</h3>
+            </div>
+            <div id="serverList" class="server-list">
+                <!-- Servers will be added here -->
+            </div>
+            <button id="addServerBtn" class="add-server-btn" title="Add Server">+</button>
+        </div>
+
+        <!-- Channel Sidebar -->
+        <div class="channel-sidebar">
+            <div class="server-info">
+                <h2 id="currentServerName">Select a Server</h2>
+                <button id="logoutBtn" class="logout-btn" title="Logout">🚪</button>
+            </div>
+            <div class="channel-section">
+                <div class="section-header">
+                    <span>TEXT CHANNELS</span>
+                </div>
+                <div id="channelList" class="channel-list">
+                    <!-- Channels will be added here -->
+                </div>
+                <button id="addChannelBtn" class="add-channel-btn">+ Add Channel</button>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">👤</div>
+                <div class="user-details">
+                    <div id="currentUsername" class="username">User</div>
+                    <div class="user-status">Online</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <span id="currentChannelName"># Select a channel</span>
+                <div class="header-actions">
+                    <button id="toggleMembersBtn" class="icon-btn" title="Toggle Members">👥</button>
+                </div>
+            </div>
+            <div id="chatBox" class="chat-box">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                <button id="sendButton" class="send-btn" disabled>Send</button>
+            </div>
+        </div>
+
+        <!-- Members Sidebar -->
+        <div id="membersSidebar" class="members-sidebar">
+            <div class="members-header">
+                <h3>Members</h3>
+            </div>
+            <div id="membersList" class="members-list">
+                <!-- Members will be listed here -->
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
